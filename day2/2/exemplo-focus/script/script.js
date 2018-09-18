@@ -69,7 +69,6 @@ for (let i =0; i<inputLevel.length; i++) {
 		alert("digite um numero válido");
 		return false
 	}
-	
 	else if (inputNews.checked === false) {
 		inputNews.focus()
 		alert("da o check aqui!");
