@@ -17,13 +17,11 @@ const inputNews = document.getElementById("cadastroInputNews");
 //console.log(inputArea.options[inputArea.selectedIndex].value);
 
 button.addEventListener("click", function(e){
-	e.preventDefault();
-
+	
 let radioItem;
 for (let i =0; i<inputLevel.length; i++) {
 	if(inputLevel[i].checked) {
 		let radioItem = inputLevel[i];
-		console.log(radioItem.value)
 		if(radioItem.value === "Junior"){
 		const input = document.querySelector("#cadastroInputLevelJunior");
 		console.log("junior: 0 - 2 anos de experiência");
@@ -40,22 +38,22 @@ for (let i =0; i<inputLevel.length; i++) {
 }
 
 	if(/[a-zA-Z]+/g.test(nome.value) === false) {
-		nome.focus()
+		nome.focus();
 		alert("Escreva seu nome");
 		return false;
 	}
 	else if(email.value.indexOf("@") === -1 || email.value.indexOf(".") === -1){
-		email.focus()
+		email.focus();
 		alert("Escreva um email válido")
 		return false;
 	}
 	else if(emailConf.value !== email.value){
-		emailConf.focus()
+		emailConf.focus();
 		alert("Deve ser igual ao primeiro e-mail!")
 		return false;
 	}
 	else if(senha.value.length < 7){
-		senha.focus()
+		senha.focus();
 		alert("senha deve ter mais 6 dígitos ou mais")
 		return false;
 	}
@@ -65,26 +63,34 @@ for (let i =0; i<inputLevel.length; i++) {
 		return false;
 	}
 	else if (/[\d]/g.test(tel.value) === false) {
-		tel.focus()
+		tel.focus();
 		alert("digite um numero válido");
 		return false
 	}
 	else if (inputNews.checked === false) {
-		inputNews.focus()
+		inputNews.focus();
 		alert("da o check aqui!");
 		return false
 	}
-	else {
+	else  {
 		const final = document.querySelector(".cadastro__form");
 		final.innerHTML = "Deu certo! <3"
 		final.style.color ="white";
 		final.style.fontSize = "36px"
-		return true
+
 	}
-})
+
+//DAR SUBMIT NO FORM E RESETA TODAS AS INFOS
+	// document.querySelector("body").style.backgroundColor = "#000";
+	// const form = this.closest("form");
+	// form.submit();
+	// console.log(form)
+
+});
 
 
 const inputArea = document.querySelector("#cadastroInputArea");
+
 inputArea.addEventListener("change", function(e){
 	e.preventDefault()
 	const optionSelect = inputArea.options[inputArea.selectedIndex].value
@@ -111,4 +117,8 @@ inputArea.addEventListener("change", function(e){
 	}
 })
 
-
+//IMPEDE CTRL V CTRL C NO CAMPO DO EMAIL
+emailConf.addEventListener("paste", function(e){
+	e.preventDefault()
+	return false;
+})
