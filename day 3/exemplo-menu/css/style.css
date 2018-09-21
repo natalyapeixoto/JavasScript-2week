@@ -19,6 +19,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition:1s;
 }
 
 .sidebar-menu__button{
@@ -30,7 +31,13 @@ body {
     font-size: 18px;
     text-transform: uppercase;
 }
+.sidebar-menu__visible{
+    left: 0;
+}
 
+.sidebar-menu__hidden{
+    left: -440px;
+}
 .sidebar-menu__nav{
     height: 60%;
 }

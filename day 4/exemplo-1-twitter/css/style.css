@@ -18,8 +18,9 @@ body {
 
 .tweet-composer{
     position: relative;
-    background-color: slategray;
+    background-color: #1DA1F2;
     padding: 10px 20px;
+    border-radius: 5px;
 }
 
 .tweet-composer__form-group{
@@ -100,4 +101,9 @@ body {
     background: 0 0;
     cursor: pointer;
     padding: 0;
+}
+
+img{
+    width: 50%;
+    border-radius: 2%;
 }
